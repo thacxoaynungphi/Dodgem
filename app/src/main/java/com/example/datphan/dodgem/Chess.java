@@ -7,9 +7,13 @@ package com.example.datphan.dodgem;
 public class Chess {
 
     private int stateChess;
+    private int row;
+    private int column;
 
-    public Chess(int stateChess) {
+    public Chess(int stateChess, int row, int column) {
         this.stateChess = stateChess;
+        this.row = row;
+        this.column = column;
     }
 
     public int getStateChess() {
@@ -18,5 +22,21 @@ public class Chess {
 
     public void setStateChess(int stateChess) {
         this.stateChess = stateChess;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
     }
 }

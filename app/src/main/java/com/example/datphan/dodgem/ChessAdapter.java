@@ -37,7 +37,7 @@ public class ChessAdapter extends RecyclerView.Adapter<ChessAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.stateChess(chesses.get(position));
+        ChessController.stateChess(chesses.get(position), holder.getImgChess());
     }
 
     @Override
@@ -50,11 +50,22 @@ public class ChessAdapter extends RecyclerView.Adapter<ChessAdapter.ViewHolder>{
         private ImageView imgChess;
         private View viewContainer;
 
+        public ImageView getImgChess() {
+            return imgChess;
+        }
+
         public ViewHolder(View itemView) {
             super(itemView);
             viewContainer = itemView.findViewById(R.id.view_container);
             imgChess = (ImageView) itemView.findViewById(R.id.iv_chess);
             setLayoutSize(3);
+
+            imgChess.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
 
         private void setLayoutSize(int columnNumber) {
@@ -75,22 +86,6 @@ public class ChessAdapter extends RecyclerView.Adapter<ChessAdapter.ViewHolder>{
             imgChess.setLayoutParams(layoutParams);
         }
 
-        public void stateChess(Chess item){
-            switch (item.getStateChess()){
-                case 0:
-                    imgChess.setImageResource(R.drawable.whitechess_icon);
-                    break;
-                case 1:
-                    imgChess.setImageResource(R.drawable.blackchess_icon);
-                    break;
-                case 2:
-                    imgChess.setBackgroundResource(R.color.colorPrepareBackground);
-                    break;
-                case 3:
-                    imgChess.setBackgroundResource(R.color.colorBackground);
-                    break;
-            }
-        }
     }
 
 
